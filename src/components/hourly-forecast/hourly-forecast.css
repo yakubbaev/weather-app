@@ -1,0 +1,4 @@
+.HourlyForecast-Container {
+  display: flex;
+  flex-direction: row;
+}

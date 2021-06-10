@@ -1,16 +1,7 @@
 import React from 'react'
+import { weatherIcons } from '../../constants/weather-icons'
+import { WeatherTypes } from '../../types/weather-types'
 import './day-card.css'
-import sunny from './sunny.svg'
-import cloudy from './cloudy.svg'
-import rainy from './rainy.svg'
-import snowy from './snowy.svg'
-
-export enum WeatherTypes {
-  Sunny,
-  Rainy,
-  Cloudy,
-  Snowy,
-}
 
 export type DailyWeatherType = {
   high: number
@@ -19,19 +10,12 @@ export type DailyWeatherType = {
   weatherType: WeatherTypes
 }
 
-const imagesMap = {
-  [WeatherTypes.Cloudy]: cloudy,
-  [WeatherTypes.Sunny]: sunny,
-  [WeatherTypes.Snowy]: snowy,
-  [WeatherTypes.Rainy]: rainy,
-}
-
 export const DayCard = (prop: DailyWeatherType) => {
   const { name, weatherType, high, low } = prop
   return (
     <div className="DayCard-Container">
       <div className="DayCard-Name">{name}</div>
-      <img src={imagesMap[weatherType]} />
+      <img src={weatherIcons[weatherType]} />
       <div className="DayCard-Degree">
         <div className="DayCard-DegreeHigh">{high}°</div>
         <div>{low}°</div>

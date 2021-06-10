@@ -1,4 +1,5 @@
-import { DailyWeatherType, WeatherTypes } from '../day-card/day-card'
+import { WeatherTypes } from '../../types/weather-types'
+import { DailyWeatherType } from '../day-card/day-card'
 
 export const forecast: DailyWeatherType[] = [
   {
