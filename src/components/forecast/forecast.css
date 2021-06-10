@@ -1,0 +1,4 @@
+.ForecastContainer {
+  display: flex;
+  flex-direction: row;
+}

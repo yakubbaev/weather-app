@@ -12,7 +12,7 @@ export enum WeatherTypes {
   Snowy,
 }
 
-type DailyWeatherType = {
+export type DailyWeatherType = {
   high: number
   low: number
   name: string
