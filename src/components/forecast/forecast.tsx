@@ -5,7 +5,7 @@ import { forecast } from './forecast.mock'
 
 export const Forecast = () => {
   return (
-    <div className="ForecastContainer">
+    <div className="Forecast-Container">
       {forecast.map((day) => (
         <DayCard key={day.name} name={day.name} weatherType={day.weatherType} high={day.high} low={day.low} />
       ))}

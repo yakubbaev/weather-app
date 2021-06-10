@@ -29,11 +29,11 @@ const imagesMap = {
 export const DayCard = (prop: DailyWeatherType) => {
   const { name, weatherType, high, low } = prop
   return (
-    <div className="Container">
-      <div className="Name">{name}</div>
+    <div className="DayCard-Container">
+      <div className="DayCard-Name">{name}</div>
       <img src={imagesMap[weatherType]} />
-      <div className="Degree">
-        <div className="DegreeHigh">{high}°</div>
+      <div className="DayCard-Degree">
+        <div className="DayCard-DegreeHigh">{high}°</div>
         <div>{low}°</div>
       </div>
     </div>
