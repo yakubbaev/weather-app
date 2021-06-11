@@ -14,13 +14,13 @@ export function getForecast(): Promise<{ daily: DailyWeatherType[]; hourly: Hour
   return fetch(url)
     .then((res) => res.json())
     .then((json) => {
-      const daily = json.daily.map((day: any) => ({
+      const daily = json.daily.splice(0, 5).map((day: any) => ({
         name: moment.unix(day.dt).format(DayOfWeekFormat),
         high: day.temp.max,
         low: day.temp.min,
         weatherType: parseWeatherType(day.weather),
       }))
-      const hourly = json.hourly.map((hour: any) => {
+      const hourly = json.hourly.splice(0, 5).map((hour: any) => {
         const date = moment.unix(hour.dt)
         return {
           dayOfWeek: date.format(DayOfWeekFormat),
