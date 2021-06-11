@@ -1,12 +1,15 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
-import { Forecast } from './components/forecast/forecast'
+import { Routes } from './routes/routes'
 
 function App() {
   return (
-    <div>
-      <Forecast />
-    </div>
+    <Router>
+      <div>
+        <Routes />
+      </div>
+    </Router>
   )
 }
 
