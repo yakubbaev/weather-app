@@ -4,16 +4,17 @@ import { WeatherTypes } from '../../types/weather-types'
 import './hour-card.css'
 
 export type HourlyWeatherType = {
-  name: string
+  dayOfWeek: string
+  hour: string
   weatherType: WeatherTypes
   degree: number
 }
 
 export const HourCard = (prop: HourlyWeatherType) => {
-  const { name, weatherType, degree } = prop
+  const { hour, weatherType, degree } = prop
   return (
     <div className="HourCard-Container">
-      <div className="HourCard-Name">{name}</div>
+      <div className="HourCard-Hour">{hour}</div>
       <img src={weatherIcons[weatherType]} />
       <div className="HourCard-Degree">{degree}°</div>
     </div>

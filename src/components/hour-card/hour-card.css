@@ -1,6 +1,6 @@
 .HourCard-Container {
-  width: 60px;
-  height: 80px;
+  min-width: 60px;
+  min-height: 80px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
@@ -8,7 +8,7 @@
   color: gray;
 }
 
-.HourCard-Name {
+.HourCard-Hour {
   text-align: center;
 }
 

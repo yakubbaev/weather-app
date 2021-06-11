@@ -3,17 +3,20 @@ import { HourlyWeatherType } from '../hour-card/hour-card'
 
 export const hourlyForecast: HourlyWeatherType[] = [
   {
-    name: 'Now',
+    dayOfWeek: 'Wed',
+    hour: 'Now',
     weatherType: WeatherTypes.Cloudy,
     degree: 56,
   },
   {
-    name: '21',
+    dayOfWeek: 'Wed',
+    hour: '21',
     weatherType: WeatherTypes.Sunny,
     degree: 62,
   },
   {
-    name: '22',
+    dayOfWeek: 'Wed',
+    hour: '22',
     weatherType: WeatherTypes.Snowy,
     degree: 67,
   },

@@ -9,7 +9,7 @@ const queryClient = new QueryClient()
 export const Routes = () => {
   return (
     <Switch>
-      <Route path={`/:nameOfDay`}>
+      <Route path={`/:dayOfWeek`}>
         <QueryClientProvider client={queryClient}>
           <HourlyForecast />
         </QueryClientProvider>
