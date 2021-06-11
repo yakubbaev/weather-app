@@ -1,7 +1,7 @@
 import { DailyWeatherType } from '../components/day-card/day-card'
 import { HourlyWeatherType } from '../components/hour-card/hour-card'
 import { WeatherTypes } from '../types/weather-types'
-import moment, { Moment } from 'moment'
+import moment from 'moment'
 
 const lat = 60.99
 const lon = 30.9

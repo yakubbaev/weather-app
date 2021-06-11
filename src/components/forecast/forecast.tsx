@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useQuery, useQueryClient, QueryClient, QueryClientProvider } from 'react-query'
+import React from 'react'
+import { useQuery } from 'react-query'
 import './forecast.css'
 import { DailyWeatherType, DayCard } from '../day-card/day-card'
 // import { forecast } from './forecast.mock'

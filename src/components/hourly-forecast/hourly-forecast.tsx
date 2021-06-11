@@ -1,8 +1,7 @@
 import React from 'react'
 import './hourly-forecast.css'
 import { HourCard } from '../hour-card/hour-card'
-import { hourlyForecast } from './hourly-forecast.mock'
-import { useParams, useRouteMatch } from 'react-router'
+import { useParams } from 'react-router'
 import { useQuery } from 'react-query'
 import { getForecast } from '../../usecases/get-forecast'
 
