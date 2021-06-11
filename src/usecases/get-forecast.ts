@@ -4,11 +4,13 @@ import { WeatherTypes } from '../types/weather-types'
 import moment from 'moment'
 
 const ApiKey = 'f993eac991106e61aeb6e556bf9d2830'
+const query = 'Tashkent,uz'
+// const query = 'Moscow,ru'
 
 const DayOfWeekFormat = 'ddd'
 
 export function getForecast(): Promise<{ daily: DailyWeatherType[]; hourly: HourlyWeatherType[] }> {
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=Tashkent,uz&units=metric&appid=${ApiKey}`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${query}&units=metric&appid=${ApiKey}`
   return fetch(url)
     .then((res) => res.json())
     .then((json) => {
