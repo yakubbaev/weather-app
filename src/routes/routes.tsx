@@ -1,16 +1,23 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { Forecast } from '../components/forecast/forecast'
 import { HourlyForecast } from '../components/hourly-forecast/hourly-forecast'
+
+const queryClient = new QueryClient()
 
 export const Routes = () => {
   return (
     <Switch>
       <Route path={`/:nameOfDay`}>
-        <HourlyForecast />
+        <QueryClientProvider client={queryClient}>
+          <HourlyForecast />
+        </QueryClientProvider>
       </Route>
       <Route path="/">
-        <Forecast />
+        <QueryClientProvider client={queryClient}>
+          <Forecast />
+        </QueryClientProvider>
       </Route>
     </Switch>
   )
