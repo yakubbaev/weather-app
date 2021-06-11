@@ -3,31 +3,37 @@ import { HourlyWeatherType } from '../components/hour-card/hour-card'
 import { WeatherTypes } from '../types/weather-types'
 import moment from 'moment'
 
-const lat = 60.99
-const lon = 30.9
 const ApiKey = 'f993eac991106e61aeb6e556bf9d2830'
 
 const DayOfWeekFormat = 'ddd'
 
 export function getForecast(): Promise<{ daily: DailyWeatherType[]; hourly: HourlyWeatherType[] }> {
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${ApiKey}`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=Tashkent,uz&units=metric&appid=${ApiKey}`
   return fetch(url)
     .then((res) => res.json())
     .then((json) => {
-      const daily = json.daily.splice(0, 5).map((day: any) => ({
-        name: moment.unix(day.dt).format(DayOfWeekFormat),
-        high: day.temp.max,
-        low: day.temp.min,
-        weatherType: parseWeatherType(day.weather),
-      }))
-      const hourly = json.hourly.splice(0, 5).map((hour: any) => {
-        const date = moment.unix(hour.dt)
-        return {
-          dayOfWeek: date.format(DayOfWeekFormat),
-          hour: date.format('HH'),
-          weatherType: parseWeatherType(hour.weather),
-          degree: hour.temp,
+      const daily: DailyWeatherType[] = []
+      const hourly: HourlyWeatherType[] = []
+      let currentDay = ''
+      json.list.forEach((forecast: any) => {
+        const date = moment.unix(forecast.dt)
+        const dayOfWeek = date.format(DayOfWeekFormat)
+        const weatherType = parseWeatherType(forecast.weather)
+        if (currentDay !== dayOfWeek) {
+          currentDay = dayOfWeek
+          daily.push({
+            name: dayOfWeek,
+            high: forecast.main.temp_max,
+            low: forecast.main.temp_min,
+            weatherType,
+          })
         }
+        hourly.push({
+          dayOfWeek: dayOfWeek,
+          hour: date.format('HH'),
+          weatherType,
+          degree: forecast.main.temp,
+        })
       })
       return {
         daily,
